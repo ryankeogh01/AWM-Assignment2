@@ -18,8 +18,12 @@ function postReg(){
                 "password": password,
                 "email": email
             })
+        }).done(function (data, status, xhr) {
+        console.log(data);
+        window.location.href="login.html";
+        }).fail(function(){
+            console.log("register failed");
         });
-
 }
 //login function
     function login(){
@@ -189,3 +193,11 @@ function checkAuth(){
     });
 }
 
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then(res => console.log("service worker registered"))
+            .catch(err => console.log("service worker not registered", err))
+    })
+}

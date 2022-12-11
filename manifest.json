@@ -1,0 +1,9 @@
+{
+  "name": "AWM Assignment 2",
+  "short_name": "AWM",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "orientation": "landscape-primary"
+
+}
