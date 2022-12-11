@@ -1,0 +1,37 @@
+form {
+    width: 70%;
+    padding-left: 20px;
+    padding-top: 60px;
+    position: center;
+
+}
+
+#reglogButton {
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+
+#div.markers {
+    padding-left: 100px;
+    margin-left: 100px;
+    position: center;
+}
+
+
+div.content {
+    display: block;
+    text-align: center;
+}
+
+#footer {
+    position: fixed;
+    padding: 0px 00px 0px 0px;
+    bottom: 10px;
+    width: 100%;
+    height: 40px;
+}
+
+body {
+    min-height: 90vh;
+}
