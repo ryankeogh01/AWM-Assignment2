@@ -1,4 +1,4 @@
-
+//register function
 function postReg(){
         let username = document.getElementById("user1").value;
         let password = document.getElementById("exampleInputPassword1").value;
@@ -8,7 +8,7 @@ function postReg(){
 
         $.ajax({
             type: "POST",
-            url:  "http://127.0.0.1:8000/api/register/",
+            url:  "https://ryankeogh.xyz/rest/api/register/",
             timeout: 0,
             headers: {
                 "Content-Type": "application/json",
@@ -21,7 +21,7 @@ function postReg(){
         });
 
 }
-
+//login function
     function login(){
         let username = document.getElementById("user1").value;
         let password = document.getElementById("exampleInputPassword1").value;
@@ -30,7 +30,7 @@ function postReg(){
 
         $.ajax({
             type: "POST",
-            url:  "http://127.0.0.1:8000/api/login/",
+            url:  "https://ryankeogh.xyz/rest/api/login/",
 
             headers: {
                 "Content-Type": "application/json",
@@ -50,13 +50,13 @@ function postReg(){
     });
 
     }
-
+//logout function
     function logout(){
 
         $.ajax({
             type: "POST",
             headers: {"Authorization": "Token " + localStorage.token},
-            url: "http://127.0.0.1:8000/api/logout/",
+            url: "https://ryankeogh.xyz/rest/api/logout/",
         }).done(function () {
             console.log("user logged out");
         });
@@ -98,7 +98,7 @@ function postReg(){
         }).always(function () {
         });
     }
-
+//overpass query api call to get markers and clusters and pass back to the frontend
 
 function showPoiMarkers2() {
     console.log("In showPoiMarkers");
@@ -110,7 +110,7 @@ function showPoiMarkers2() {
     $.ajax({
         type: "POST",
         headers: {"Authorization": "Token " + localStorage.token},
-        url: "http://127.0.0.1:8000/api/overpass/",
+        url: "https://ryankeogh.xyz/rest/api/overpass/",
         data: {
             query: query,
             bbox: map.getBounds().toBBoxString()
@@ -146,7 +146,7 @@ function showPoiMarkers2() {
     });
 }
 
-
+//updates the user location using rest api
     function update_db(lng,lat) {
         let locString = lng + ", " + lat;
         $.ajax({
@@ -154,7 +154,7 @@ function showPoiMarkers2() {
             headers: {
                 "Authorization": "Token " + localStorage.token
             },
-            url: "http://127.0.0.1:8000/api/updatedb/",
+            url: "https://ryankeogh.xyz/rest/api/updatedb/",
             data: {
                 "last_location": locString
             }
@@ -174,13 +174,14 @@ function showPoiMarkers2() {
         fillOpacity:0.8
     };
 
+//checks user authentication
 function checkAuth(){
     $.ajax({
         type: "POST",
         headers: {
             "Authorization": "Token " + localStorage.token
         },
-        url: "http://127.0.0.1:8000/api/check_auth/",
+        url: "https://ryankeogh.xyz/rest/api/check_auth/",
     }).done(function (data,status,xhr) {
         console.log("User is logged in");
     }).fail(function(data,status,xhr) {
